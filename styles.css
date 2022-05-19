@@ -1,0 +1,32 @@
+/* landing page  */
+body{
+    padding: 5rem 10rem;
+    background-color: #e822f2;
+    color: white;
+}
+
+.heading{
+    padding-top: 10rem;
+    font-weight: bold;
+}
+
+.seprect{
+    position: relative;
+    width: 50rem;
+    margin: 3rem 0 3rem 0;
+}
+
+.statistics{
+    position: absolute;
+    top: 35rem;
+    left: 20rem;
+    width: 50%;
+}
+
+.results{
+    position:absolute;
+    height: 45%;
+    top: 24.5rem;
+    left: 43rem;
+    z-index: 1;
+}
