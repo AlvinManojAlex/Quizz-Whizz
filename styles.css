@@ -3,7 +3,7 @@
 .landing-page{
     padding: 5rem 10rem;
     background-color: #e822f2;
-    background-image: linear-gradient(to bottom right, #e822f2, #3dd976);
+    background-image: linear-gradient(to right, #e822f2, #3dd976);
     color: white;
     font-family: 'Montserrat', sans-serif;
 }
@@ -32,4 +32,43 @@
 
 .question-page{
     background-color: #eedbc7;
+}
+
+.button-exit{
+    position: relative;
+    left: 95%;
+    top: 5rem;
+}
+
+.button-exit:hover{
+    color: #eedbc7;
+}
+
+.question{
+    position: relative;
+    top: 12rem;
+    text-align: center;
+    width: 60%;
+}
+
+.btn-option{
+    display: block;
+    position: relative;
+    margin: 1rem;
+    font-weight: bold;
+    width: 60%;
+    left: 18%;
+}
+
+.btn-correct{
+    background-color: rgb(0, 171, 0);
+}
+
+.btn-wrong{
+    background-color: rgb(200, 4, 4);
+}
+
+.question-heading{
+    padding-bottom: 5rem;
+    color: rgb(4, 4, 159);
 }
