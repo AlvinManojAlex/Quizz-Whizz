@@ -77,9 +77,12 @@
 .btn-continue{
     position: relative;
     top: 17rem;
-    left: 44rem;
     background-color: rgb(84, 83, 83);
     color: white;
+}
+
+.parent-btn{
+    text-align: center;
 }
 
 .btn-continue:hover{
