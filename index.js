@@ -71,48 +71,53 @@ let questions = [
     }
 ];
 
-
 var score = 0;
 var i = 0;
-questionload(0);
+var chosen = "";
+var correct = "";
 
-function questionload(i) {
-    $(".question-heading").text(questions[i].qn);
-    $("#option1").text(questions[i].option1);
-    $("#option2").text(questions[i].option2);
-    $("#option3").text(questions[i].option3);
-    var chosen = "";
-
-    $(".btn-option").click(function () {
-
-        chosen = $(this).attr("id");
-        // console.log(chosen+" and "+questions[i].correct);
-        altBtn(chosen, questions[i].correct);
-        if (chosen == questions[i].correct) {
-            score++;
-        }
-
-    });
-    
-    if (i == questions.length-1) {
-        $(".btn-continue").text("Finish");
-        // call finish fucnction to display answer
-    }
-    $(".btn-continue").click(function () {
-        i++;
-        $(".btn-option").removeClass("btn-correct");
-        $(".btn-option").removeClass("btn-wrong");
-        questionload(i);
-    });
-
-}
-
-function altBtn(chosen, correct) {
-    if (chosen == correct) {
+$(".btn-option").click(function () {
+    chosen = $(this).attr("id");
+    // console.log(chosen);
+    if (chosen === correct) {
         $("#" + chosen).addClass("btn-correct");
+        score++;
+        console.log(score);
     }
     else {
         $("#" + chosen).addClass("btn-wrong");
         $("#" + correct).addClass("btn-correct");
     }
+
+});
+
+$(".btn-continue").click(function () {
+    resetParameters();
+    // k++;
+    console.log("I got clicked");
+    nextSequence();
+});
+
+//call the function loadQuestion()
+nextSequence();
+// loadQuestion(1);
+
+function loadQuestion(k) {
+    $(".question-heading").text(k.qn);
+    $("#option1").text(k.option1);
+    $("#option2").text(k.option2);
+    $("#option3").text(k.option3);
+    correct = k.correct;
+    // console.log(k);
+    // return;
+}
+
+function resetParameters() {
+    // $("#" + chosen).removeClass("btn-correct btn-wrong");
+    // $("#" + correct).removeClass("btn-correct");
+    $(".btn-option").removeClass("btn-correct btn-wrong");
+}
+
+function nextSequence() {
+    loadQuestion(questions.pop());
 }
