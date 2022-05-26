@@ -72,6 +72,7 @@ let questions = [
 ];
 
 var score = 0;
+var check = 0;
 var i = 0;
 var chosen = "";
 var correct = "";
@@ -94,15 +95,38 @@ $(".btn-option").click(function () {
 $(".btn-continue").click(function () {
     resetParameters();
     // k++;
-    console.log("I got clicked");
-    nextSequence();
+    // console.log("I got clicked");
+    if (questions.length == 0) {
+        sessionStorage.setItem("finalScore", score);
+        $(".next-link").attr("href", "score.html");
+    }
+    else {
+        nextSequence();
+    }
 });
+
+$(".score-btn").click(function () {
+    if (check == 1) {
+        $(".back-link").attr("href", "index.html");
+    }
+    if (check == 0) {
+        var finalScore = sessionStorage.getItem("finalScore");
+        printScore(finalScore);
+        $(".score-ans").removeClass("hide");    
+    }
+    check = 1;
+    endExam();
+})
 
 //call the function loadQuestion()
 nextSequence();
 // loadQuestion(1);
 
 function loadQuestion(k) {
+    if (questions.length == 0) {
+        $(".btn-continue").text("Finish");
+    }
+
     $(".question-heading").text(k.qn);
     $("#option1").text(k.option1);
     $("#option2").text(k.option2);
@@ -120,4 +144,21 @@ function resetParameters() {
 
 function nextSequence() {
     loadQuestion(questions.pop());
+}
+
+function printScore(score) {
+    console.log(score);
+    if (score <= 4) {
+        $(".score-ans").text("You scored " + score + " points. Better luck next time !");
+    }
+    else if (score > 4 && score <= 9) {
+        $(".score-ans").text("Good try ! You scored " + score + " points.");
+    }
+    else {
+        $(".score-ans").text("Amazing ! You scored a perfect " + score + ".");
+    }
+}
+
+function endExam() {
+    $(".score-btn").text("Back to homepage");
 }

@@ -89,3 +89,49 @@
     background-color: rgb(0, 81, 0);
     color: white;
 }
+
+/* Score card page */
+
+.score-page{
+    background-color: #e822f2;
+    background-image: linear-gradient(to right, #e822f2, #3dd976);
+}
+
+.score-card{
+    position: relative;
+    left: 22%;
+    top: 10rem;
+    text-align: center;
+    
+    background-color: #eedbc7;
+    height: 20rem;
+    width: 50rem;
+    
+    font-family: 'Montserrat', sans-serif;
+    color: rgb(4, 4, 159);
+}
+
+.score-heading{
+    padding-top: 3rem;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.score-ans{
+    padding-top: 5rem;
+    font-size: 1.5rem;
+}
+
+.hide{
+    visibility: hidden;
+}
+
+.btn-outline-primary{
+    border-color:rgb(4, 4, 159);
+    color: rgb(4, 4, 159);
+}
+
+.btn-outline-primary:hover{
+    background-color:rgb(4, 4, 159);
+    border-color: rgb(4, 4, 159);
+}
